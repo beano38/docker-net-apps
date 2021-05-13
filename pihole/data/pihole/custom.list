@@ -1,0 +1,37 @@
+
+172.16.30.10 free-radius.cmllab.test
+172.16.30.10 syslog-ng.cmllab.test
+172.16.30.10 ntpd.cmllab.test
+
+172.16.100.101 p01-xr9kv.cmllab.test
+172.16.100.102 p02-xr9kv.cmllab.test
+172.16.100.103 p03-xr9kv.cmllab.test
+172.16.100.104 p04-xr9kv.cmllab.test
+172.16.100.105 p05-xr9kv.cmllab.test
+172.16.100.106 p06-xr9kv.cmllab.test
+172.16.100.107 p07-xr9kv.cmllab.test
+172.16.100.108 p08-xr9kv.cmllab.test
+
+172.16.100.111 pe01-xr9kv.cmllab.test
+172.16.100.112 pe02-xr9kv.cmllab.test
+172.16.100.113 pe03-xr9kv.cmllab.test
+172.16.100.114 pe04-xr9kv.cmllab.test
+172.16.100.115 pe05-xr9kv.cmllab.test
+172.16.100.116 pe06-xr9kv.cmllab.test
+172.16.100.117 pe07-xr9kv.cmllab.test
+172.16.100.118 pe08-xr9kv.cmllab.test
+
+172.16.100.151 rr01-xr9kv.cmllab.test
+172.16.100.152 rr02-xr9kv.cmllab.test
+172.16.100.153 rr03-xr9kv.cmllab.test
+172.16.100.154 rr04-xr9kv.cmllab.test
+
+172.16.100.201 pa01-csr1kv.cmllab.test
+172.16.100.202 pa02-csr1kv.cmllab.test
+172.16.100.203 pa03-csr1kv.cmllab.test
+172.16.100.204 pa04-csr1kv.cmllab.test
+
+172.16.100.221 cbr01-csr1kv.cmllab.test
+172.16.100.222 cbr02-csr1kv.cmllab.test
+172.16.100.223 cbr03-csr1kv.cmllab.test
+172.16.100.224 cbr04-csr1kv.cmllab.test

@@ -1,0 +1,39 @@
+ben@docker0:~$ tree
+.
+├── docker
+│   ├── docker-compose.yml
+│   ├── isc-dhcp
+│   │   └── data
+│   │       ├── dhcpd.conf
+│   │       ├── dhcpd.leases
+│   │       └── dhcpd.leases~
+│   ├── lighttpd
+│   │   └── lighttpd.conf
+│   ├── radius
+│   │   ├── clients.conf
+│   │   ├── mods-config
+│   │   │   └── files
+│   │   │       └── authorize
+│   │   └── users
+│   ├── syslogng
+│   │   └── syslog-ng.conf
+│   └── tftp
+│       └── Dockerfile
+└── files
+    ├── config
+    │   └── baseline.cfg
+    ├── iosxe
+    ├── iosxr
+    │   ├── asr9000
+    │   └── ncs5500
+    │       ├── 663
+    │       │   └── smu
+    │       └── 712
+    │           └── smu
+    ├── network-confg
+    └── test.txt
+
+ben@docker0:~$ docker --version
+Docker version 20.10.5, build 55c4c88
+ben@docker0:~$ docker-compose --version
+docker-compose version 1.28.5, build unknown

@@ -1,0 +1,76 @@
+version: "3.7"
+
+services: 
+  dhcp:
+    image: networkboot/dhcpd
+    container_name: dhcpd
+    init: true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ~/docker/isc-dhcp/data:/data
+    ports:
+      - 67:67/udp
+    
+  pihole:
+    container_name: pihole
+    image: pihole/pihole
+    hostname: pihole
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+      - 80:80/tcp
+      - 443:443/tcp
+    environment:
+      - TZ='America/New York'
+      - WEBPASSWORD=letmein
+    dns:
+      - 127.0.0.1
+      - 192.168.1.1
+    volumes:
+      - ~/docker/pihole/data/pihole:/etc/pihole
+      - ~/docker/pihole/data/dnsmasq.d:/etc/dnsmasq.d
+    restart: unless-stopped
+
+  freeradius:
+    container_name: radius
+    image: freeradius/freeradius-server
+    hostname: freeradius
+    ports:
+      - 1812:1812/udp
+      - 1813:1813/udp
+      - 18120:18120
+    volumes:
+      - ~/docker/radius/clients.conf:/etc/freeradius/clients.conf
+      - ~/docker/radius/users:/etc/freeradius/users
+    command: -X # for debugging messages sent to the console 'docker exec -it radius -f'
+
+  # https://github.com/balabit/syslog-ng-docker/tree/master/syslog-ng
+  syslogng:
+    container_name: syslog
+    image: balabit/syslog-ng
+    hostname: syslogng
+    ports:
+      - 514:514/udp
+      - 601:601/tcp
+    volumes:
+      - ~/docker/syslogng/syslog-ng.conf:/etc/syslog-ng/syslog-ng.conf
+    command: -edv # for debugging messages sent to the console
+
+  lighttpd:
+    image: gists/lighttpd
+    container_name: lighttpd
+    hostname: lighttpd
+    ports:
+      - 8080:80
+    volumes:
+      - ~/files:/var/www
+      - ~/docker/lighttpd:/etc/lighttpd
+
+  tftp:
+    build: ./tftp/.
+    container_name: tftp
+    image: tftp
+    volumes:
+      - ~/files:/var/tftpboot
+    ports:
+       - 69:69/udp

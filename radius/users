@@ -1,0 +1,9 @@
+testing Cleartext-Password := "password"
+
+ben Cleartext-password := "letmein"
+  Service-Type = NAS-Prompt-User,
+  Cisco-AVPair = "shell:priv-lvl=15"
+
+nso Cleartext-password := "nso123"
+  Service-Type = NAS-Prompt-User,
+  Cisco-AVPair = "shell:priv-lvl=15"

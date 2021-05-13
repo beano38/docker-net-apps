@@ -1,0 +1,28 @@
+---
+- hosts: docker
+  vars:
+    - docker_users:
+      - "{{ ansible_env.USER }}"
+
+  pre_tasks:  
+    - name: Update package cache and install APT packages
+      become: true
+      package:
+        name: [python3-pip]
+        state: present
+        update_cache: true
+        cache_valid_time: 3600
+    
+    - name: Install pip packages
+      pip:
+        name: [ docker-compose, docker ]
+        executable: pip3
+        state: present
+
+  tasks:
+    - block:
+      - name: Bring up docker
+        include_role:
+          name: geerlingguy.docker
+      become: true
+        
