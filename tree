@@ -4,9 +4,7 @@ ben@docker0:~$ tree
 │   ├── docker-compose.yml
 │   ├── isc-dhcp
 │   │   └── data
-│   │       ├── dhcpd.conf
-│   │       ├── dhcpd.leases
-│   │       └── dhcpd.leases~
+│   │       └── dhcpd.conf
 │   ├── lighttpd
 │   │   └── lighttpd.conf
 │   ├── radius
